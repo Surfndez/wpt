@@ -202,6 +202,10 @@ class FakeCentral {
     return this.fetchOrCreatePeripheral_(scanResult.deviceAddress);
   }
 
+  async setState({state}) {
+    await this.fake_central_ptr_.setState(toMojoCentralState(state));
+  }
+
   // Create a fake_peripheral object from the given address.
   fetchOrCreatePeripheral_(address) {
     let peripheral = this.peripherals_.get(address);
